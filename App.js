@@ -1,12 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
+import ButtonComponent from './ButtonComponent';
 
 export default function App() {
+
+  const peoples = [
+    'Gizem',
+    'Ayşenur',
+    'Fatma',
+  ];
+
+
+
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <FlatList data={peoples}
+        renderItem={({ item, index }) =>
+          <ButtonComponent item={item} color="green" />} />
+
+      <ButtonComponent item={"Not Ver"} color="purple" />
+      <ButtonComponent item={"Not Al"} color="orange" />
+      <ButtonComponent item={"Not Al"} color="pink" />
+      <ButtonComponent item={"Not Al"} color="azure" />
     </View>
   );
 }
@@ -14,8 +31,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50
+  }
 });
